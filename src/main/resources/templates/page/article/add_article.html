@@ -1,0 +1,138 @@
+<th:block th:insert="admin/common/header::header"/>
+<header class="main-header bg-white d-flex justify-content-between p-2">
+    <div class="header-toggle">
+        <div class="menu-toggle mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="breadcrumb mt-2">
+            <ul class="mr-2">
+                <li><a th:href="@{/articles/}" class="text-14">Articles</a></li>
+                <li>Add new </li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+<div class="main-content pt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="card-title mb-3">Form Inputs Rounded</div>
+                    <form th:action="@{add}" method="post" th:object="${article}" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="title">Title</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" id="title" name="title" type="text" placeholder="Enter title for this article">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="course">Course</label>
+                            <div class="col-sm-10">
+                                <select class="form-control form-control-rounded" id="course" name="course">
+                                    <option th:each="course : ${courses}" th:value="${course.id}" th:text="${course.title}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="slug">Slug</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" id="slug" name="slug" type="text" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Image</label>
+                            <div class="col-sm-10">
+                                <div class="custom-file">
+                                    <label class="custom-file-label" for="image">Choose file</label>
+                                    <input class="custom-file-input" id="image" type="file" name="image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="editor-container">Content</label>
+                            <div class="col-sm-10">
+                                <textarea rows="10" cols="10" name="content" id="editor-container" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Tags</label>
+
+                            <div class="col-sm-10">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <div class="tagBox" data-no-duplicate="true" data-pre-tags-separator="
+" data-no-duplicate-text="Duplicate tags" data-type-zone-class="type-zone" data-tag-box-class="tagging" data-edit-on-delete="false"></div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="ispremium">Premium</label>
+                            <div class="col-sm-10">
+                                <label class="switch pr-5 switch-primary mr-3">
+                                    <input type="checkbox" id="ispremium" name="isPremium"><span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="isactive">Active</label>
+                            <div class="col-sm-10">
+                                <label class="switch pr-5 switch-primary mr-3">
+                                    <input type="checkbox" id="isactive" name="isActive"><span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="price">Price</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="price" name="price" type="text" placeholder="Enter price for this article">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="discount">Discount</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="discount" name="discount" type="text" placeholder="Enter discount for this article">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- end of main-content -->
+</div>
+<th:block th:insert="admin/common/footer::footer"/>
+<script type="text/javascript">
+    initializeTinyMce("#editor-container");
+    $('#title').bind('keyup keypress blur', function()
+    {
+        var myStr = $(this).val()
+        myStr=myStr.toLowerCase();
+        myStr=myStr.replace(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/g,"");   //this one
+        myStr=myStr.replace(/\s+/g, "-");
+
+        $('#slug').val(myStr);
+    });
+
+
+</script>
+</body>
+
+</html>

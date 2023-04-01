@@ -1,0 +1,32 @@
+<th:block th:fragment="header">
+    <!DOCTYPE html>
+    <html lang="en" dir="">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>My life </title>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet" />
+        <link th:href="@{/assets/css/themes/lite-blue.css}" rel="stylesheet" />
+        <link th:href="@{/assets/css/plugins/perfect-scrollbar.css}" rel="stylesheet" />
+        <link th:href="@{/assets/css/plugins/fontawesome-5.css}" rel="stylesheet"/>
+        <link th:href="@{/assets/css/plugins/metisMenu.min.css}" rel="stylesheet" />
+        <link th:href="@{/assets/iconsmind/iconsmind.css}" rel="stylesheet" />
+    </head>
+
+    <body class="text-left">
+    <div class="app-admin-wrap layout-sidebar-vertical sidebar-full">
+        <th:block th:insert="common/sidebar::sidebar"/>
+        <div class="switch-overlay"></div>
+        <div class="main-content-wrap mobile-menu-content bg-off-white m-0">
+
+            <div class="alert alert-success" th:if="${session.success}" role="alert">
+                <strong class="text-capitalize" th:text="${session.success}"></strong>
+                <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="alert alert-danger" th:if="${session.error}" role="alert">
+                <strong class="text-capitalize" th:text="${session.error}"></strong>
+                <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+</th:block>

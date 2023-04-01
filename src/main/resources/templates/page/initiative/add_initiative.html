@@ -1,0 +1,58 @@
+<th:block th:insert="common/header::header"/>
+<header class="main-header bg-white d-flex justify-content-between p-2">
+    <div class="header-toggle">
+        <div class="menu-toggle mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="breadcrumb mt-2">
+            <ul class="mr-2">
+                <li><a th:href="@{/initiative/}" class="text-14">Initiative</a></li>
+                <li>Add new </li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+<div class="main-content pt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="card-title mb-3"><h3> [[${{goal.name}}]] </h3></div>
+                    <form th:action="@{/initiatives/add}" method="post" th:object="${initiative}">
+                        <input name="goal" class="form-control form-control-rounded" type="hidden" th:value="${goal.id}">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="name">Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" id="name" name="name" type="text" placeholder="Give this initiative a name">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="due_date">Due date</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="due_date" name="dueDate" type="date" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Create</button>
+                                <button onclick="window.history.back()" class="btn btn-warning">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- end of main-content -->
+</div>
+<th:block th:insert="common/footer::footer"/>
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>

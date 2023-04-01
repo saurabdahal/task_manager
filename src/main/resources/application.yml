@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    username: saurab
+    password: saurab123
+    url: jdbc:postgresql://localhost:5432/life
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  liquibase:
+    change-log: db.changelog/db.changelog-master.xml

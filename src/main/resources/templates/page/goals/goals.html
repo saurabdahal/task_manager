@@ -1,0 +1,87 @@
+<th:block th:insert="common/header::header"/>
+<header class="main-header bg-white d-flex justify-content-between p-2">
+
+    <div class="header-toggle">
+        <div class="menu-toggle mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="breadcrumb mt-2">
+            <ul class="mr-2">
+                <li><a href="#" class="text-14">Goals</a></li>
+                <li>List</li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="main-content pt-4">
+    <div class="row mb-4">
+        <div class="col-md-12 mb-4">
+            <div class="card text-left">
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h4 class="card-title">List of all my goals</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a th:href="@{add}" class="btn btn-outline-info" style="float: right">
+                                <i class="i-Add"> plan a new goal</i></a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="display table table-striped table-bordered" id="zero_configuration_table" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Goal</th>
+                                <th class="text-center">I Count</th>
+                                <th class="text-center">Days remaining</th>
+                                <th class="text-center">Created on</th>
+                                <th class="text-center">Deadline</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr th:each="goal : ${goals}">
+                                <td class="col-5 text-center">
+                                    <a th:href="@{/goals/list/initiatives(id=${goal.serial_id})}" class="text-20" th:text="${goal.name}"></a>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                             role="progressbar" data-th-attr="aria-valuenow=${goal.completion}" aria-valuemin="0" aria-valuemax="100"
+                                             th:style="'width:'+ ${goal.completion}+'%'"></div>
+                                    </div></td>
+                                <td class="col-1 text-center" th:text="${goal.i_count}"></td>
+                                <td th:if="${goal.days_remaining < 7 }" class="bg-danger" th:text="${goal.days_remaining}"></td>
+                                <td th:unless="${goal.days_remaining < 7 }" th:text="${goal.days_remaining}"></td>
+
+                                <td class="col-1 text-center" th:text="${goal.created_at}"></td>
+                                <td class="col-1 text-center" th:text="${goal.deadline}"></td>
+                                <td class="col-2 text-center">
+                                    <a th:href="@{/goals/add/initiative(id=${goal.serial_id})}" class="btn btn-outline-primary m-1">
+                                        <i class="i-Add"></i>
+                                    </a>
+                                    <a th:href="@{/goals/edit(id=${goal.serial_id})}" class="btn btn-outline-primary m-1">
+                                        <i class="i-Pen-2"></i>
+                                    </a>
+                                    <a th:href="@{/goals/delete(id=${goal.serial_id})}" class="btn btn-outline-danger m-1">
+                                        <i class="i-Remove"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of row-->
+<!-- end of main-content -->
+</div>
+
+<th:block th:insert="common/footer::footer"/>
+</body>
+
+</html>

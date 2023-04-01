@@ -1,0 +1,82 @@
+<th:block th:insert="admin/common/header::header"/>
+<header class="main-header bg-white d-flex justify-content-between p-2">
+    <div class="header-toggle">
+        <div class="menu-toggle mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="breadcrumb mt-2">
+            <ul class="mr-2">
+                <li><a href="href" class="text-14">Articles</a></li>
+                <li>List</li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="main-content pt-4">
+    <div class="row mb-4">
+        <div class="col-md-12 mb-4">
+            <div class="card text-left">
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h4 class="card-title">List of all Articles</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a th:href="@{add}" class="btn btn-outline-info" style="float: right">
+                                <i class="i-Add"> create new</i></a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="display table table-striped table-bordered" id="zero_configuration_table" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Title</th>
+                                <th class="text-center">Image</th>
+                                <th class="text-center">Belongs to</th>
+                                <th class="text-center">isPremium</th>
+                                <th class="text-center">price</th>
+                                <th class="text-center">Discount</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr th:each="article : ${articles}">
+                                <td class="col-5 text-center"><a class="text-20" th:href="@{/admin/articles/single-article(article_id=${article.id})}" th:text="${article.title}"></a></td>
+                                <td>
+                                    <img th:src="@{${article.imgUrl}}">
+                                </td>
+                                <td class="col-1 text-center" th:text="${article.course.title}"></td>
+                                <td class="col-1 text-center" th:text="${article.isPremium}"></td>
+                                <td class="col-1 text-center" th:text="${article.price}"></td>
+                                <td class="col-1 text-center" th:text="${article.discount}"></td>
+                                <td class="col-3 text-center">
+                                    <a th:href="@{/admin/articles/edit(id=${article.serialid})}" class="btn btn-outline-primary m-1">
+                                        <i class="i-Pen-2"></i>
+                                    </a>
+                                    <a th:href="@{/admin/articles/edit-meta(id=${article.serialid})}" class="btn btn-outline-secondary m-1">
+                                        <i class="i-Coding"></i>
+                                    </a>
+                                    <a th:href="@{/admin/articles/delete(id=${article.serialid})}" class="btn btn-outline-danger m-1">
+                                        <i class="i-Remove"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of row-->
+<!-- end of main-content -->
+</div>
+
+<th:block th:insert="admin/common/footer::footer"/>
+</body>
+
+</html>

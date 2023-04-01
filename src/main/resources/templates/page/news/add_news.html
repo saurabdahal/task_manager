@@ -1,0 +1,73 @@
+<th:block th:insert="common/header::header"/>
+<header class="main-header bg-white d-flex justify-content-between p-2">
+    <div class="header-toggle">
+        <div class="menu-toggle mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="breadcrumb mt-2">
+            <ul class="mr-2">
+                <li><a th:href="@{/news/}" class="text-14">News</a></li>
+                <li>Add new </li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+<div class="main-content pt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="card-title mb-3">Add new record</div>
+                    <form th:action="@{add}" method="post" th:object="${news}">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="remark">Remark</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" id="remark" name="remark" type="text" placeholder="Remark for this news">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="editor-container">Description</label>
+                            <div class="col-sm-10">
+                                <textarea rows="10" cols="10" name="description" id="editor-container" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Type</label>
+                            <div class="col-sm-10">
+                                <label class="radio radio-outline-primary">
+                                    <input type="radio" value="1" name="type"><span>Good</span><span class="checkmark"></span>
+                                </label>
+                                <label class="radio radio-outline-primary">
+                                    <input type="radio" value="0" name="type"><span>Bad</span><span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="occuredDate">Occurred date</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" id="occuredDate" name="occouredDate" type="date" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- end of main-content -->
+</div>
+<th:block th:insert="common/footer::footer"/>
+<script type="text/javascript">
+    initializeTinyMce("#editor-container");
+</script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<th:block th:insert="common/header::header"/>
+<header class="main-header bg-white d-flex justify-content-between p-2">
+
+    <div class="header-toggle">
+        <div class="menu-toggle mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="breadcrumb mt-2">
+            <ul class="mr-2">
+                <li><a href="#" class="text-14">Initiative</a></li>
+                <li>List</li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="main-content pt-4">
+    <div class="row mb-4">
+        <div class="col-md-12 mb-4">
+            <div class="card text-left">
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h4 class="card-title">List of all my initiatives for
+                                <strong>[[${{goal}}]]</strong> </h4>
+                        </div>
+                        <div class="col-md-3">
+                            <button onclick="window.history.back()" class="btn btn-warning" style="float: right">
+                                <i class="i-Back1"> back </i></button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="display table table-striped table-bordered" id="zero_configuration_table" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Initiative</th>
+                                <th class="text-center">Total Tasks</th>
+                                <th class="text-center">incomplete Tasks</th>
+                                <th class="text-center">Created on</th>
+                                <th class="text-center">Due Date</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr th:each="initiative : ${initiatives}">
+                                <td class="col-4 text-center">
+                                    <a th:href="@{/initiatives/list/task(id=${initiative.serial_id})}" class="text-20" th:text="${initiative.name}"></a>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                             role="progressbar" data-th-attr="aria-valuenow=${initiative.completion}" aria-valuemin="0" aria-valuemax="100"
+                                             th:style="'width:'+ ${initiative.completion}+'%'"></div>
+                                    </div>
+                                </td>
+                                <td th:text="${initiative.ttc}"></td>
+                                <td th:text="${initiative.itc}"></td>
+                                <td class="col-1 text-center" th:text="${initiative.created_at}"></td>
+                                <td class="col-1 text-center" th:text="${initiative.due_date}"></td>
+                                <td class="col-2 text-center">
+                                    <a th:href="@{/initiatives/add/task(id=${initiative.serial_id})}" class="btn btn-outline-primary m-1">
+                                        <i class="i-Add"></i>
+                                    </a>
+                                    <a th:href="@{/initiatives/edit(id=${initiative.serial_id})}" class="btn btn-outline-primary m-1">
+                                        <i class="i-Pen-2"></i>
+                                    </a>
+                                    <a th:href="@{/initiatives/delete(id=${initiative.serial_id})}" class="btn btn-outline-danger m-1">
+                                        <i class="i-Remove"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of row-->
+<!-- end of main-content -->
+</div>
+
+<th:block th:insert="common/footer::footer"/>
+</body>
+
+</html>

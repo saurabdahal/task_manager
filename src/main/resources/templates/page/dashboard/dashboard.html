@@ -1,0 +1,170 @@
+<th:block th:insert="common/header::header"/>
+
+<!-- ============ Body content start ============= -->
+<div class="main-content pt-4">
+    <div class="row">
+        <div th:if="${goals.size() > 0}" class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header fw-bold dropdown-toggle">
+                    Goal status
+                </div>
+                <div class="card-body" id="custom-toggle6">
+                    <ul class="list-unstyled mb-0">
+                        <li th:each="goal:${goals}" class="mb-3">
+                            <div class="d-flex align-items-center mb-1">
+                                <a th:href="@{/goals/list/initiatives(id=${goal.serial_id})}" th:text="${goal.name}"></a>
+                                <span class="text-muted ms-auto">
+                            [[${{goal.completion}}]]%</span>
+                            </div>
+                            <div class="progress" style="height: 0.125rem">
+                                <div class="progress-bar bg-danger" th:style="'width:'+${goal.completion}+'%'">
+                                    <span class="sr-only">[[${{goal.completion}}]]% Complete</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div th:if="${initiatives.size() > 0}" class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header fw-bold dropdown-toggle">
+                    Initiative status
+                </div>
+                <div class="card-body" id="custom-toggle6">
+                    <ul class="list-unstyled mb-0">
+                        <li th:each="initiative:${initiatives}" class="mb-3">
+                            <div class="d-flex align-items-center mb-1">
+                                <a th:href="@{/initiatives/list/task(id=${initiative.serial_id})}" th:text="${initiative.name}"></a>
+                                <span class="text-muted ms-auto">
+                            [[${{initiative.completion}}]]%</span>
+                            </div>
+                            <div class="progress" style="height: 0.125rem">
+                                <div class="progress-bar bg-danger" th:style="'width:'+${initiative.completion}+'%'">
+                                    <span class="sr-only">[[${{initiative.completion}}]]% Complete</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breadcrumb">
+        <h1 class="me-2">Goals</h1>
+    </div>
+    <div class="separator-breadcrumb border-top"></div>
+    <div class="row">
+        <!-- ICON BG-->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #fff">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Total Goals  </h5>
+                        <h2 class="t-font-boldest" th:text="${total_goals}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #eeebe2">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Goals Achieved</h5>
+                        <h2 class="t-font-boldest" th:text="${completed_goals}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #ebeff2">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Goals in progress</h5>
+                        <h2 class="t-font-boldest" th:text="${inprogress_goals}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #d9ebfa">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Goals not started</h5>
+                        <h2 class="t-font-boldest" th:text="${notstarted_goals}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="separator-breadcrumb border-top"></div>
+    <div class="breadcrumb">
+        <h1 class="me-2">Initiatives</h1>
+    </div>
+    <div class="separator-breadcrumb border-top"></div>
+    <div class="row">
+        <!-- ICON BG-->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #fff">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Total Initiatives</h5>
+                        <h2 class="t-font-boldest" th:text="${total_initiative}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #eef4f1">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Completed Initiative</h5>
+                        <h2 class="t-font-boldest" th:text="${completed_initiative}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #e6eaee">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Incomplete Initiatives</h5>
+                        <h2 class="t-font-boldest" th:text="${inprogress_initiative}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #c3e9f2">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Not started Initiatives</h5>
+                        <h2 class="t-font-boldest" th:text="${notstarted_initiative}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="separator-breadcrumb border-top"></div>
+    <div class="breadcrumb">
+        <h1 class="me-2">Money</h1>
+    </div>
+    <div class="separator-breadcrumb border-top"></div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #a0cfdb">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Total Balance</h5>
+                        <h2 class="t-font-boldest" th:text="${total_balance}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="separator-breadcrumb border-top"></div>
+</div>
+<th:block th:insert="common/footer::footer"/>
+</body>
+
+</html>

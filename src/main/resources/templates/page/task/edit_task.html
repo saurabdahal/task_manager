@@ -1,0 +1,85 @@
+<th:block th:insert="common/header::header"/>
+<header class="main-header bg-white d-flex justify-content-between p-2">
+    <div class="header-toggle">
+        <div class="menu-toggle mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="breadcrumb mt-2">
+            <ul class="mr-2">
+                <li><a th:href="@{/tasks/}" class="text-14">Tasks</a></li>
+                <li>Add new </li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+<div class="main-content pt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="card-title mb-3">Form Inputs Rounded</div>
+                    <form th:action="@{update}" method="post" th:object="${task}">
+                        <input type="hidden" name="serialid" id="serialid" th:value="${task.serialid}">
+<!--                        <input type="hidden" name="id" id="id" th:value="${article.id}">-->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="name">Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" th:value="${task.name}" id="name" name="name" type="text" placeholder="Give this initiative a name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="initiative">Initiative</label>
+                            <div class="col-sm-10">
+                                <select class="form-control form-control-rounded" id="initiative" name="initiative">
+                                    <option th:each="initiative : ${initiatives}" th:value="${initiative.id}" th:text="${initiative.name}"
+                                            th:selected="${initiative.id}==${task.initiative.id}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="editor-container">Description</label>
+                            <div class="col-sm-10">
+                                <textarea rows="10" cols="10" name="description" id="editor-container" class="form-control">[[${task.description}]]</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="due_date">Due date</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" th:value="${task.dueDate}" id="due_date" name="dueDate" type="date" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- end of main-content -->
+</div>
+<th:block th:insert="common/footer::footer"/>
+<script type="text/javascript">
+    initializeTinyMce("#editor-container");
+    $('#title').bind('keyup keypress blur', function()
+    {
+        var myStr = $(this).val()
+        myStr=myStr.toLowerCase();
+        myStr=myStr.replace(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/g,"");   //this one
+        myStr=myStr.replace(/\s+/g, "-");
+
+        $('#slug').val(myStr);
+    });
+
+
+</script>
+</body>
+
+</html>
