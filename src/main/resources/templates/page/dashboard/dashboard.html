@@ -56,7 +56,7 @@
     <div class="separator-breadcrumb border-top"></div>
     <div class="row">
         <!-- ICON BG-->
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #fff">
                 <div class="card-body text-center">
                     <div class="ul-widget__chart-info">
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #eeebe2">
                 <div class="card-body text-center">
                     <div class="ul-widget__chart-info">
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #ebeff2">
                 <div class="card-body text-center">
                     <div class="ul-widget__chart-info">
@@ -86,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #d9ebfa">
                 <div class="card-body text-center">
                     <div class="ul-widget__chart-info">
@@ -104,7 +104,7 @@
     <div class="separator-breadcrumb border-top"></div>
     <div class="row">
         <!-- ICON BG-->
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #fff">
                 <div class="card-body text-center">
                     <div class="ul-widget__chart-info">
@@ -114,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #eef4f1">
                 <div class="card-body text-center">
                     <div class="ul-widget__chart-info">
@@ -124,7 +124,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #e6eaee">
                 <div class="card-body text-center">
                     <div class="ul-widget__chart-info">
@@ -134,7 +134,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-3 col-sm-6">
             <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #c3e9f2">
                 <div class="card-body text-center">
                     <div class="ul-widget__chart-info">
@@ -163,6 +163,42 @@
         </div>
     </div>
     <div class="separator-breadcrumb border-top"></div>
+    <div class="breadcrumb">
+        <h1 class="me-2">Job</h1>
+    </div>
+    <div class="separator-breadcrumb border-top"></div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #c3e3c0">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Total applied</h5>
+                        <h2 class="t-font-boldest" th:text="${total_applied}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #b5ecb0">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Responded</h5>
+                        <h2 class="t-font-boldest" th:text="${responded}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4" style="background-color: #ecc1a3">
+                <div class="card-body text-center">
+                    <div class="ul-widget__chart-info">
+                        <h5 class="heading">Interviewed</h5>
+                        <h2 class="t-font-boldest" th:text="${interviewed}"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <th:block th:insert="common/footer::footer"/>
 </body>

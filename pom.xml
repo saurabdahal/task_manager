@@ -12,8 +12,8 @@ http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <groupId>com.casperinv</groupId>
     <artifactId>goals</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>service</name>
-    <description>service</description>
+    <name>goal</name>
+    <description>my goals</description>
     <properties>
         <java.version>17</java.version>
     </properties>

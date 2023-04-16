@@ -1,0 +1,100 @@
+<th:block th:insert="common/header::header"/>
+<header class="main-header bg-white d-flex justify-content-between p-2">
+    <div class="header-toggle">
+        <div class="menu-toggle mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="breadcrumb mt-2">
+            <ul class="mr-2">
+                <li><a th:href="@{/job/}" class="text-14">Jobs</a></li>
+                <li>Add new </li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+<div class="main-content pt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="card-title mb-3">Add new job</div>
+                    <form th:action="@{add}" method="post" th:object="${job}">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="title">Title</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" id="title" name="title" type="text" placeholder="Job title">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="company">Company</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" id="company" name="company" type="text" placeholder="Company name">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="link">Link</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" id="link" name="link" type="text" placeholder="Job post link">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Response</label>
+                            <div class="col-sm-10">
+                                <label class="radio radio-outline-primary">
+                                    <input type="radio" value="1" name="type"><span>Yes</span><span class="checkmark"></span>
+                                </label>
+                                <label class="radio radio-outline-primary">
+                                    <input type="radio" value="0" name="type"><span>No</span><span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Interview</label>
+                            <div class="col-sm-10">
+                                <label class="radio radio-outline-primary">
+                                    <input type="radio" value="1" name="call_for_interview"><span>Yes</span><span class="checkmark"></span>
+                                </label>
+                                <label class="radio radio-outline-primary">
+                                    <input type="radio" value="0" name="call_for_interview"><span>No</span><span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="appliedDate">Applied date</label>
+                            <div class="col-sm-10">
+                                <input class="form-control form-control-rounded" id="appliedDate" name="appliedDate" type="date" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="editor-container">Job description</label>
+                            <div class="col-sm-10">
+                                <textarea rows="10" cols="10" name="jd" id="editor-container" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary" type="submit">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div><!-- end of main-content -->
+</div>
+<th:block th:insert="common/footer::footer"/>
+<script type="text/javascript">
+    initializeTinyMce("#editor-container");
+</script>
+</body>
+
+</html>

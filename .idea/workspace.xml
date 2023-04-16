@@ -5,19 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35a553de-2ed5-4841-a7e7-beb3cc3a3a5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/Utils/URLHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/Utils/UploadFileLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/GoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/GoalsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/InitiativeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/InitiativeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/repository/MoneyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/repository/MoneyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/GoalsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/GoalsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/InitiativeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/InitiativeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/changes/changelog-v001.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/changes/changelog-v001.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/sql/initial_sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/sql/initial_sql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/dashboard/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/goals/edit_goal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/goals/edit_goal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/initiative/initiatives.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/initiative/initiatives.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/money/edit_money.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/money/edit_money.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/news/edit_news.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/news/edit_news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/task/edit_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/task/edit_task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/task/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/task/tasks.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +72,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/saura/IdeaProjects/Services/src/main/resources/templates/page",
+    "last_opened_file_path": "C:/Users/saura/IdeaProjects/Goal",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,16 +85,19 @@
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "postgresql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "PostgreSQL"
     ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\static\assets\back\faces" />
+      <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\page\job" />
       <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\page" />
       <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\page\goals" />
       <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\page\" />
-      <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\page\dashboard" />
-      <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\static\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\common" />
@@ -113,6 +124,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Goal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Goal" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -145,22 +169,18 @@
       <workItem from="1680049601217" duration="47289000" />
       <workItem from="1680224735452" duration="1387000" />
       <workItem from="1680228375072" duration="11198000" />
-      <workItem from="1680308142208" duration="12488000" />
+      <workItem from="1680308142208" duration="18111000" />
+      <workItem from="1680468889586" duration="680000" />
+      <workItem from="1680473142997" duration="309000" />
+      <workItem from="1680542887303" duration="5252000" />
+      <workItem from="1680660082317" duration="2695000" />
+      <workItem from="1681051908390" duration="34000" />
+      <workItem from="1681668955201" duration="26000" />
+      <workItem from="1681669186941" duration="301000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/GoalsController.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

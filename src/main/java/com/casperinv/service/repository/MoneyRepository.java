@@ -11,11 +11,11 @@ public interface MoneyRepository extends JpaRepository<Money,Integer> {
     List<Money> findAllByTypeEquals(int type);
 
     @Query(value = """
-select case when balance is null then 0 else balance end from (with income as (
-    select sum(amount) inc from money where type=1),
-     expense as (
-         select sum(amount) exp from money where type=0)
-select income.inc-expense.exp balance from income,expense) as blnc;
+select case when balance is null then 0 else balance end from (
+with income as (
+    select case when sum(amount) is null then 0 else sum(amount) end inc from money where type=1),
+    expense as (select case when sum(amount) is null then 0 else sum(amount) end exp from money where type=0)
+ select income.inc-expense.exp balance from income,expense) as blnc
 """,nativeQuery = true)
     double findBalance();
 }

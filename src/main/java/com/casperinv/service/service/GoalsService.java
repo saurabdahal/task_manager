@@ -3,6 +3,7 @@ package com.casperinv.service.service;
 import com.casperinv.service.entity.Goals;
 import com.casperinv.service.repository.GoalsRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
@@ -42,7 +43,7 @@ public class GoalsService {
         return goalsRepository.findAllGoalsWithICount(days_rem);
     }
 
-    public void addgoal(HttpServletRequest request, Goals goals){
+    public void addgoal(RedirectAttributes attributes, Goals goals){
         try{
             goals.setSerialid(UUID.randomUUID().toString());
             goals.setName(goals.getName());
@@ -51,14 +52,14 @@ public class GoalsService {
             goals.setCreatedAt(LocalDate.now());
             goals.setUpdatedAt(LocalDate.now());
             goalsRepository.save(goals);
-            request.getSession().setAttribute("success","goal added successfully");
+            attributes.addFlashAttribute("success","goal added successfully");
         }catch (Exception e){
             e.printStackTrace();
-            request.getSession().setAttribute("error",e.getLocalizedMessage());
+            attributes.addFlashAttribute("error",e.getLocalizedMessage());
         }
     }
 
-    public void updateGoal(HttpServletRequest request, Goals goals){
+    public void updateGoal(RedirectAttributes attributes, Goals goals){
         try{
             System.out.println(goals.getSerialid());
             Goals g1 = goalsRepository.findGoalsBySerialid(goals.getSerialid());
@@ -67,10 +68,10 @@ public class GoalsService {
             g1.setDeadline(LocalDate.parse(goals.getDeadline().toString()));
             g1.setUpdatedAt(LocalDate.now());
             goalsRepository.save(g1);
-            request.getSession().setAttribute("success","goal updated successfully");
+            attributes.addFlashAttribute("success","goal updated successfully");
         }catch (Exception e){
             e.printStackTrace();
-            request.getSession().setAttribute("error",e.getLocalizedMessage());
+            attributes.addFlashAttribute("error",e.getLocalizedMessage());
         }
     }
 
@@ -82,13 +83,13 @@ public class GoalsService {
         return goalsRepository.findById(serialid).get();
     }
 
-    public void deleteGoal(HttpServletRequest request, String id){
+    public void deleteGoal(RedirectAttributes attributes, String id){
         try{
             Goals goals = goalsRepository.findGoalsBySerialid(id);
             goalsRepository.delete(goals);
-            request.getSession().setAttribute("success","goals got deleted");
+            attributes.addFlashAttribute("success","goals got deleted");
         }catch(Exception e){
-            request.getSession().setAttribute("error",e.getLocalizedMessage());
+            attributes.addFlashAttribute("error",e.getLocalizedMessage());
         }
     }
 

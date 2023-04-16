@@ -5,6 +5,7 @@ import com.casperinv.service.entity.Initiatives;
 import com.casperinv.service.repository.InitiativeRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
@@ -42,21 +43,21 @@ public class InitiativeService {
     public List<Map<String, Object>> findAllCriticalInitiatives(int days_rem){
         return initiativeRepository.findAllCriticalInitiatives(days_rem);
     }
-    public void addInitiative(HttpServletRequest request, Initiatives initiative){
+    public void addInitiative(RedirectAttributes attributes, Initiatives initiative){
         try{
             initiative.setSerialid(UUID.randomUUID().toString());
             initiative.setDueDate(LocalDate.parse(initiative.getDueDate().toString()));
             initiative.setCreatedAt(LocalDate.now());
             initiative.setUpdatedAt(LocalDate.now());
             initiativeRepository.save(initiative);
-            request.getSession().setAttribute("success","initiative added successfully");
+            attributes.addFlashAttribute("success","initiative added successfully");
         }catch (Exception e){
             e.printStackTrace();
-            request.getSession().setAttribute("error",e.getLocalizedMessage());
+            attributes.addFlashAttribute("error",e.getLocalizedMessage());
         }
     }
 
-    public void updateInitiative(HttpServletRequest request, Initiatives initiatives){
+    public void updateInitiative(RedirectAttributes attributes, Initiatives initiatives){
         try{
             Initiatives initiative = initiativeRepository.findInitiativeBySerialid(initiatives.getSerialid());
             Goals g = goalsService.findBylId(initiatives.getGoal().getId());
@@ -65,10 +66,10 @@ public class InitiativeService {
             initiative.setDueDate(LocalDate.parse(initiatives.getDueDate().toString()));
             initiative.setUpdatedAt(LocalDate.now());
             initiativeRepository.save(initiative);
-            request.getSession().setAttribute("success","initiative updated successfully");
+            attributes.addFlashAttribute("success","initiative updated successfully");
         }catch (Exception e){
             e.printStackTrace();
-            request.getSession().setAttribute("error",e.getLocalizedMessage());
+            attributes.addFlashAttribute("error",e.getLocalizedMessage());
         }
     }
 
@@ -77,7 +78,6 @@ public class InitiativeService {
     }
 
     public List<Map<String, Objects>> findByGoal(Goals goal){
-        System.out.println(goal.getId());
         return initiativeRepository.findAllByGoal(goal.getId());
     }
 
@@ -89,13 +89,13 @@ public class InitiativeService {
         return initiativeRepository.findById(id).get();
     }
 
-    public void deleteInitiative(HttpServletRequest request, String id){
+    public void deleteInitiative(RedirectAttributes attributes, String id){
         try{
             Initiatives initiative = initiativeRepository.findInitiativeBySerialid(id);
             initiativeRepository.delete(initiative);
-            request.getSession().setAttribute("success","initiative got deleted");
+            attributes.addFlashAttribute("success","initiative got deleted");
         }catch(Exception e){
-            request.getSession().setAttribute("error",e.getLocalizedMessage());
+            attributes.addFlashAttribute("error",e.getLocalizedMessage());
         }
     }
 

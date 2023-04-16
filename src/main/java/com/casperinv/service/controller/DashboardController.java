@@ -3,6 +3,7 @@ package com.casperinv.service.controller;
 import com.casperinv.service.Utils.URLHandler;
 import com.casperinv.service.service.GoalsService;
 import com.casperinv.service.service.InitiativeService;
+import com.casperinv.service.service.JobService;
 import com.casperinv.service.service.MoneyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +19,13 @@ public class DashboardController {
     private final GoalsService goalsService;
     private final InitiativeService initiativeService;
     private final MoneyService moneyService;
+    private final JobService jobService;
 
-    public DashboardController(GoalsService goalsService, InitiativeService initiativeService, MoneyService moneyService) {
+    public DashboardController(GoalsService goalsService, InitiativeService initiativeService, MoneyService moneyService, JobService jobService) {
         this.goalsService = goalsService;
         this.initiativeService = initiativeService;
         this.moneyService = moneyService;
+        this.jobService = jobService;
     }
 
     @GetMapping(value = "/")
@@ -40,6 +43,10 @@ public class DashboardController {
         model.addAttribute("total_balance",moneyService.findTotalBalance());
         model.addAttribute("goals",goalsService.findAllCriticalGoalsWithInitiativeCount(15));
         model.addAttribute("initiatives",initiativeService.findAllCriticalInitiatives(15));
+
+        model.addAttribute("total_applied",jobService.findAllJobs().size());
+        model.addAttribute("responded",jobService.findResponded());
+        model.addAttribute("interviewed",jobService.findInterviewed());
 
         return URLHandler.getRedirectPage(directory, "dashboard");
     }

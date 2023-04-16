@@ -5,6 +5,7 @@ import com.casperinv.service.entity.Initiatives;
 import com.casperinv.service.entity.Tasks;
 import com.casperinv.service.repository.TaskRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
@@ -31,21 +32,21 @@ public class TaskService {
     public List<Tasks> findAllTasksByInitiatives(Initiatives initiatives){
         return taskRepository.findAllByInitiative(initiatives);
     }
-    public void addTask(HttpServletRequest request, Tasks task){
+    public void addTask(RedirectAttributes request, Tasks task){
         try{
             task.setSerialid(UUID.randomUUID().toString());
             task.setDueDate(LocalDate.parse(task.getDueDate().toString()));
             task.setCreatedAt(LocalDate.now());
             task.setUpdatedAt(LocalDate.now());
             taskRepository.save(task);
-            request.getSession().setAttribute("success","task added successfully");
+            request.addFlashAttribute("success","task added successfully");
         }catch (Exception e){
             e.printStackTrace();
-            request.getSession().setAttribute("error",e.getLocalizedMessage());
+            request.addFlashAttribute("error",e.getLocalizedMessage());
         }
     }
 
-    public void updateTask(HttpServletRequest request, Tasks task){
+    public void updateTask(RedirectAttributes request, Tasks task){
         try{
             Tasks t = taskRepository.findTasksBySerialid(task.getSerialid());
             Initiatives i = initiativeService.findById(task.getInitiative().getId());
@@ -54,10 +55,10 @@ public class TaskService {
             t.setDueDate(LocalDate.parse(task.getDueDate().toString()));
             t.setUpdatedAt(LocalDate.now());
             taskRepository.save(t);
-            request.getSession().setAttribute("success","task updated successfully");
+            request.addFlashAttribute("success","task updated successfully");
         }catch (Exception e){
             e.printStackTrace();
-            request.getSession().setAttribute("error",e.getLocalizedMessage());
+            request.addFlashAttribute("error",e.getLocalizedMessage());
         }
     }
 
@@ -65,18 +66,18 @@ public class TaskService {
         return taskRepository.findTasksBySerialid(serialid);
     }
 
-    public void deleteTask(HttpServletRequest request, String id){
+    public void deleteTask(RedirectAttributes request, String id){
         try{
             Tasks tasks = taskRepository.findTasksBySerialid(id);
             taskRepository.delete(tasks);
-            request.getSession().setAttribute("success","task got deleted");
+            request.addFlashAttribute("success","task got deleted");
         }catch(Exception e){
-            request.getSession().setAttribute("error",e.getLocalizedMessage());
+            request.addFlashAttribute("error",e.getLocalizedMessage());
         }
     }
 
     @Transactional
-    public void completeTask(HttpServletRequest request,String serialId,int done){
+    public void completeTask(RedirectAttributes request,String serialId,int done){
         boolean status = done == 1;
         Tasks task = taskRepository.findTasksBySerialid(serialId);
         Initiatives initiative = task.getInitiative();

@@ -35,7 +35,7 @@ public class InitiativeController {
         Goals goal = goalsService.findBySerialId(gsid);
         List<Map<String, Objects>> initiatives = initiativeService.findByGoal(goal);
         model.addAttribute("initiatives",initiatives);
-        model.addAttribute("goal",goal.getName());
+        model.addAttribute("goal",goal);
         return URLHandler.getRedirectPage(directory, "initiatives");
     }
 
@@ -46,11 +46,10 @@ public class InitiativeController {
     }
 
     @PostMapping(value = "/add")
-    public String addInitiativeAction(RedirectAttributes attributes,HttpServletRequest request,
+    public String addInitiativeAction(RedirectAttributes attributes,
                                       @ModelAttribute Initiatives initiatives) {
-        System.out.println("value = "+initiatives.getGoal());
         attributes.addAttribute("goal_sid",initiatives.getGoal().getSerialid());
-        initiativeService.addInitiative(request,initiatives);
+        initiativeService.addInitiative(attributes,initiatives);
         return "redirect:"+baseRedirectUrl;
     }
 
@@ -74,15 +73,17 @@ public class InitiativeController {
     }
 
     @PostMapping(value = "/update")
-    public String updateInitiative(HttpServletRequest servletRequest,
+    public RedirectView updateInitiative(RedirectAttributes attributes,
                                 @ModelAttribute Initiatives initiatives) {
-        initiativeService.updateInitiative(servletRequest,initiatives);
-        return "redirect:"+baseRedirectUrl;
+        initiativeService.updateInitiative(attributes,initiatives);
+        attributes.addAttribute("goal_sid",initiatives.getGoal().getSerialid());
+        return new RedirectView(baseRedirectUrl);
     }
 
     @GetMapping(value = "/delete")
-    public String deleteInitiative(HttpServletRequest servletRequest, @RequestParam("id") String serialid) {
-        initiativeService.deleteInitiative(servletRequest,serialid);
+    public String deleteInitiative(RedirectAttributes attributes, @RequestParam("id") String serialid) {
+        attributes.addAttribute("goal_sid",initiativeService.findBySerialId(serialid).getGoal().getSerialid());
+        initiativeService.deleteInitiative(attributes,serialid);
         return "redirect:"+baseRedirectUrl;
     }
 }

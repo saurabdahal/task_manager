@@ -23,9 +23,12 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <h4 class="card-title">List of all my initiatives for
-                                <strong>[[${{goal}}]]</strong> </h4>
+                                <strong>[[${{goal.name}}]]</strong> </h4>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
+                            <a style="float: right" th:href="@{/goals/add/initiative(id=${goal.serialid})}" class="btn btn-outline-primary m-1">
+                                <i class="i-Add"></i>
+                            </a>
                             <button onclick="window.history.back()" class="btn btn-warning" style="float: right">
                                 <i class="i-Back1"> back </i></button>
                         </div>

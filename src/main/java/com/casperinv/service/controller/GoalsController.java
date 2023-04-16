@@ -40,8 +40,8 @@ public class GoalsController {
     }
 
     @PostMapping(value = "/add")
-    public String addGoalAction(HttpServletRequest request,@ModelAttribute Goals goal) {
-        goalsService.addgoal(request,goal);
+    public String addGoalAction(RedirectAttributes attributes,@ModelAttribute Goals goal) {
+        goalsService.addgoal(attributes,goal);
         return "redirect:"+baseRedirectUrl;
     }
 
@@ -64,15 +64,15 @@ public class GoalsController {
     }
 
     @PostMapping(value = "/update")
-    public String updateGoal(HttpServletRequest servletRequest,
+    public String updateGoal(RedirectAttributes attributes,
                                 @ModelAttribute Goals goals) {
-        goalsService.updateGoal(servletRequest,goals);
+        goalsService.updateGoal(attributes,goals);
         return "redirect:"+baseRedirectUrl;
     }
 
     @GetMapping(value = "/delete")
-    public String deleteGoal(HttpServletRequest servletRequest, @RequestParam("id") String serialid) {
-        goalsService.deleteGoal(servletRequest,serialid);
+    public String deleteGoal(RedirectAttributes attributes, @RequestParam("id") String serialid) {
+        goalsService.deleteGoal(attributes,serialid);
         return "redirect:"+baseRedirectUrl;
     }
 }

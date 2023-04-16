@@ -33,7 +33,7 @@ public class TaskController {
         Initiatives initiatives = initiativeService.findBySerialId(isid);
         List<Tasks> tasks = taskService.findAllTasksByInitiatives(initiatives);
         model.addAttribute("tasks",tasks);
-        model.addAttribute("initiative",initiatives.getName());
+        model.addAttribute("initiative",initiatives);
         return URLHandler.getRedirectPage(directory, "tasks");
     }
 
@@ -44,8 +44,8 @@ public class TaskController {
     }
 
     @PostMapping(value = "/add")
-    public String addTaskAction(RedirectAttributes attributes,HttpServletRequest request, @ModelAttribute Tasks tasks) {
-        taskService.addTask(request,tasks);
+    public String addTaskAction(RedirectAttributes attributes, @ModelAttribute Tasks tasks) {
+        taskService.addTask(attributes,tasks);
         attributes.addAttribute("initiative_sid",tasks.getInitiative().getSerialid());
         return "redirect:"+baseRedirectUrl;
     }
@@ -58,25 +58,25 @@ public class TaskController {
     }
 
     @PostMapping(value = "/update")
-    public String updateTask(HttpServletRequest servletRequest,RedirectAttributes attributes,
+    public String updateTask(RedirectAttributes attributes,
                              @ModelAttribute Tasks tasks) {
         attributes.addAttribute("initiative_sid",tasks.getInitiative().getSerialid());
-        taskService.updateTask(servletRequest,tasks);
+        taskService.updateTask(attributes,tasks);
         return "redirect:"+baseRedirectUrl;
     }
 
     @GetMapping(value = "/delete")
-    public String deleteTask(HttpServletRequest servletRequest,RedirectAttributes attributes, @RequestParam("id") String serialid) {
+    public String deleteTask(RedirectAttributes attributes, @RequestParam("id") String serialid) {
         attributes.addAttribute("initiative_sid",taskService.findBySerialId(serialid).getInitiative().getSerialid());
-        taskService.deleteTask(servletRequest,serialid);
+        taskService.deleteTask(attributes,serialid);
         return "redirect:"+baseRedirectUrl;
     }
 
     @GetMapping(value = "/done")
-    public String doneTask(HttpServletRequest servletRequest,RedirectAttributes attributes, @RequestParam("id") String serialid,
+    public String doneTask(RedirectAttributes attributes, @RequestParam("id") String serialid,
                            @RequestParam("done") int done) {
         attributes.addAttribute("initiative_sid",taskService.findBySerialId(serialid).getInitiative().getSerialid());
-        taskService.completeTask(servletRequest,serialid,done);
+        taskService.completeTask(attributes,serialid,done);
         return "redirect:"+baseRedirectUrl;
     }
 }
