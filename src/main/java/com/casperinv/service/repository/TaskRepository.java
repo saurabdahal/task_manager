@@ -22,4 +22,10 @@ select avg(weight) wt from task group by ?1
     double avgTotalWeightForByInitiativeId(int i_id);
 
     List<Tasks> findAllByInitiative(Initiatives initiatives);
+
+    @Query(value = """
+select case when max(sequence) is null then 1 else max(sequence)+1 end
+ from task where initiative_id = ?1
+""",nativeQuery = true)
+    int findMaxSequenceByInitiative(Integer initiativeId);
 }

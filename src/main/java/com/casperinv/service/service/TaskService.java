@@ -7,7 +7,6 @@ import com.casperinv.service.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
@@ -94,5 +93,10 @@ public class TaskService {
         double ini_percentage = (initiativeCompletion/initiativeWeight)*100;
         goal.setCompletion(ini_percentage);
         goalsService.updateGoal(request,goal);
+    }
+
+    public int findMaxSequenceNumber(Integer initiative_id){
+        System.out.println(initiative_id);
+        return taskRepository.findMaxSequenceByInitiative(initiative_id);
     }
 }

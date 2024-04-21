@@ -13,9 +13,4 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
         <sqlFile path="db.changelog/sql/initial_sql.sql"/>
     </changeSet>
 
-    <changeSet id="00002" author="saurab">
-        <sqlFile path="db.changelog/sql/change_charactercount_on_tasktitle.sql"/>
-    </changeSet>
-
-
 </databaseChangeLog>

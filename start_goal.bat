@@ -1,0 +1,1 @@
+java -jar C:\Users\saura\IdeaProjects\Goal\target\goals-0.0.1-SNAPSHOT.jar

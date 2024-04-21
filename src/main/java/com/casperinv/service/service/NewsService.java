@@ -1,8 +1,6 @@
 package com.casperinv.service.service;
 
-import com.casperinv.service.entity.Money;
 import com.casperinv.service.entity.News;
-import com.casperinv.service.repository.MoneyRepository;
 import com.casperinv.service.repository.NewsRepository;
 import org.springframework.stereotype.Service;
 

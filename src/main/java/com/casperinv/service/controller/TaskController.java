@@ -40,6 +40,7 @@ public class TaskController {
     @GetMapping(value = "/add")
     public String getTaskAddFormPage(Model model,@RequestParam("initiative_sid") String sid) {
         model.addAttribute("initiative",initiativeService.findBySerialId(sid));
+        model.addAttribute("sequence",taskService.findMaxSequenceNumber(initiativeService.findBySerialId(sid).getId()));
         return URLHandler.getRedirectPage(directory, "add_task");
     }
 

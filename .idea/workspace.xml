@@ -5,26 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35a553de-2ed5-4841-a7e7-beb3cc3a3a5f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/GoalsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/GoalsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/InitiativeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/InitiativeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/MoneyController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/repository/MoneyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/repository/MoneyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/GoalsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/GoalsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/InitiativeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/InitiativeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/entity/Money.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/entity/Tasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/entity/Tasks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/repository/MoneyRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/repository/NewsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/repository/NewsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/MoneyService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/NewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/NewsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/casperinv/service/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/changes/changelog-v001.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/changes/changelog-v001.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/sql/change_charactercount_on_tasktitle.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db.changelog/sql/initial_sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.changelog/sql/initial_sql.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/common/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/common/sidebar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/dashboard/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/goals/edit_goal.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/goals/edit_goal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/initiative/initiatives.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/initiative/initiatives.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/money/edit_money.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/money/edit_money.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/news/edit_news.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/news/edit_news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/task/edit_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/task/edit_task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/money/add_money.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/money/edit_money.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/money/money.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/task/add_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/task/add_task.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/page/task/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/page/task/tasks.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -72,7 +77,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/saura/IdeaProjects/Goal",
+    "last_opened_file_path": "C:/Users/saura/IdeaProjects/Goal/src/main/resources/templates/page",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -87,17 +92,18 @@
       "postgresql"
     ],
     "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL",
       "PostgreSQL"
     ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\saura\IdeaProjects\Goal\src\main\resources\templates\page" />
+      <recent name="C:\Users\saura\IdeaProjects\Goal\src\main\resources\db.changelog\sql" />
       <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\static\assets\back\faces" />
       <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\page\job" />
       <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\page" />
-      <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\page\goals" />
-      <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\page\" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\saura\IdeaProjects\Services\src\main\resources\templates\common" />
@@ -116,6 +122,8 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="F:\JAVA_JDK" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.casperinv.service.Main" />
       <module name="goals" />
       <extension name="coverage">
@@ -148,6 +156,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Spring Boot.Main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -176,7 +188,18 @@
       <workItem from="1680660082317" duration="2695000" />
       <workItem from="1681051908390" duration="34000" />
       <workItem from="1681668955201" duration="26000" />
-      <workItem from="1681669186941" duration="301000" />
+      <workItem from="1681669186941" duration="1387000" />
+      <workItem from="1681670793090" duration="400000" />
+      <workItem from="1682628655551" duration="62000" />
+      <workItem from="1682629039783" duration="4794000" />
+      <workItem from="1685224956283" duration="2000" />
+      <workItem from="1685236491019" duration="5136000" />
+      <workItem from="1686498590612" duration="1210000" />
+      <workItem from="1686509945654" duration="7196000" />
+      <workItem from="1687025562097" duration="2065000" />
+      <workItem from="1687043878991" duration="280000" />
+      <workItem from="1707319754687" duration="873000" />
+      <workItem from="1713665191773" duration="702000" />
     </task>
     <servers />
   </component>

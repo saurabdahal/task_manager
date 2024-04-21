@@ -31,6 +31,8 @@ public class Tasks {
     @Column(name = "serial_id")
     private String serialid;
 
+    @Column(name = "sequence")
+    private int sequence;
     @Column(name = "completed")
     private Boolean completed;
 

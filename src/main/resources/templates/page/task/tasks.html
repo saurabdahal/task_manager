@@ -36,6 +36,7 @@
                         <table class="display table table-striped table-bordered" id="zero_configuration_table" style="width:100%">
                             <thead>
                             <tr>
+                                <th class="text-center">Sequence</th>
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Initiative</th>
                                 <th class="text-center">Created on</th>
@@ -46,6 +47,7 @@
                             <tbody>
 
                             <tr th:each="task : ${tasks}">
+                                <td class="text-center" th:text="${task.sequence}"></td>
                                 <td class="col-5 text-center">
                                     <a class="text-20" th:if="${task.completed}"
                                        th:style="'text-decoration: line-through;text-decoration-thickness: 3px; '" th:text="${task.name}"></a>
